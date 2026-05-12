@@ -1,0 +1,29 @@
+-- ============================================================
+-- Project : IRON GYM MANAGEMENT SYSTEM (V4 - SYNCED)
+-- Script  : 02_gym_data.sql
+-- Purpose : DML - Populate tables with sample data
+-- ============================================================
+
+-- 1. Insert Staff
+INSERT INTO STAFF (STAFFID, FIRSTNAME, LASTNAME, ROLE, PHONE, SALARY)
+VALUES (SEQ_STAFF_ID.NEXTVAL, 'Hassan', 'Ahmed', 'Admin', '03001234567', 85000);
+
+-- 2. Insert Membership Plans
+INSERT INTO MEMBERSHIP_PLAN (PLANID, PLAN_NAME, PRICE, DURATION_DAYS) VALUES (1, 'Monthly Basic', 3000, 30);
+INSERT INTO MEMBERSHIP_PLAN (PLANID, PLAN_NAME, PRICE, DURATION_DAYS) VALUES (2, 'Quarterly Pro', 8000, 90);
+
+-- 3. Insert Members (With Passwords)
+INSERT INTO MEMBER (MEMBERID, FIRSTNAME, LASTNAME, PHONE, GENDER, PASSWORD)
+VALUES (SEQ_MEMBER_ID.NEXTVAL, 'John', 'Doe', '1234567890', 'M', '1234');
+INSERT INTO MEMBER (MEMBERID, FIRSTNAME, LASTNAME, PHONE, GENDER, PASSWORD)
+VALUES (SEQ_MEMBER_ID.NEXTVAL, 'Jane', 'Smith', '0987654321', 'F', '1234');
+
+-- 4. Insert Payments
+INSERT INTO PAYMENT (PAYMENTID, MEMBERID, AMOUNT, PAYMENT_DATE, METHOD)
+VALUES (5001, 1001, 3000, SYSDATE, 'Cash');
+
+-- 5. Insert Equipment
+INSERT INTO EQUIPMENT (EQUIPMENTID, NAME, STATUS, PURCHASE_DATE)
+VALUES (SEQ_EQUIP_ID.NEXTVAL, 'Treadmill X1', 'Working', SYSDATE);
+
+COMMIT;
